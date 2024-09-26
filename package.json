@@ -1,0 +1,16 @@
+{
+  "name": "lesson-02",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "basiclightbox": "^5.0.4"
+  }
+}
