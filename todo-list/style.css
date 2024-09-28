@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 90vw;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.list {
+  margin-top: 25px;
+  display: inline-flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 15px;
+  border-radius: 10px;
+  box-shadow: 2px 3px 5px black;
+  padding: 50px;
+  width: 100%;
+}
+
+.list > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.list > li.line-through > span {
+  text-decoration: line-through;
+}
+
+.list > li > button {
+  background-color: #d42a2abe;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10px;
+}
