@@ -49,3 +49,16 @@
   height: 380px;
   object-fit: cover;
 }
+
+p.not-found-text {
+  text-align: center;
+  font-size: 40px;
+}
+
+p.not-found-text > span {
+  display: inline-block;
+  padding: 2px 10px;
+  background-color: #2ecc71;
+  color: #ffffff;
+  border-radius: 10px;
+}

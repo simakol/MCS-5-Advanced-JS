@@ -9,22 +9,16 @@
  */
 
 fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
+  .then(res => {
+    if (!res.ok) {
+      throw new Error(res.status);
     }
-
-    return response.json();
+    console.log('THEN BLOCK');
+    console.log(res);
+    return res.json();
   })
-  .then(data => {
-    console.log(data);
-  })
+  .then(data => console.log(data))
   .catch(err => {
-    switch (err.message) {
-      case '404': {
-        alert('Ресурс не знайдено!');
-
-        break;
-      }
-    }
+    console.log('CATCH BLOCK');
+    console.error(err);
   });
