@@ -1,8 +1,7 @@
 const refs = {
   mainForm: document.querySelector('#mainForm'),
   list: document.querySelector('.js-list'),
+  loader: document.querySelector('.js-loader'),
 };
 
-const taskList = [];
-
-export { refs, taskList };
+export { refs };

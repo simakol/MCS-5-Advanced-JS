@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "notiflix": "^3.2.7"
   }
 }
