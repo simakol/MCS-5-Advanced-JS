@@ -21,25 +21,58 @@ foo().then(console.log)
 //* without async
 
 // const fetchTodos = () => {
-//   return fetch("https://jsonplaceholder.typicode.com/todos")
-//     .then((response) => {
-// if(!response.ok) {
-//     throw new Error(response.status)
-// }
-//       return response.json();
-//     })
-//     .then((data) => {
-//       console.log(data);
-//       return;
-//     });
+//   return fetch('https://jsonplaceholder.typicode.com/todos').then(response => {
+//     if (!response.ok) {
+//       throw new Error(response.status);
+//     }
+//     return response.json();
+//   });
 // };
 
 // fetchTodos()
-//   .then((data) => {
+//   .then(data => {
 //     console.log(data);
 //   })
-//   .catch((error) => {
+//   .catch(error => {
 //     console.log(error);
 //   });
 
 //* with async
+
+const fetchTodos = async () => {
+  const res = await fetch('https://jsonplaceholder.typicode.com/todos');
+
+  console.log(res);
+
+  if (!res.ok) {
+    throw new Error(res.status);
+  }
+
+  const dataFromServer = await res.json();
+
+  return dataFromServer;
+};
+
+//* v1
+
+// fetchTodos()
+//   .then(data => {
+//     console.log(data);
+//   })
+//   .catch(error => {
+//     console.log(error);
+//   });
+
+//* v2
+
+console.log('start');
+
+// обрбка помилки в місці, де викликаєтсья асинхронна функція
+try {
+  const todos = await fetchTodos();
+  console.log(todos);
+} catch (err) {
+  console.log(err);
+}
+
+console.log('end');
