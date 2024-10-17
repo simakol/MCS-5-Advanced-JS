@@ -50,6 +50,11 @@
   display: none;
 }
 
+.load-more:disabled {
+  background-color: #c1c1c1;
+  cursor: not-allowed;
+}
+
 .gallery {
   display: flex;
   flex-wrap: wrap;

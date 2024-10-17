@@ -60,3 +60,8 @@
 .load-more-btn.is-hidden {
   display: none;
 }
+
+.load-more-btn:disabled {
+  background-color: #c1c1c1;
+  cursor: not-allowed;
+}

@@ -1,4 +1,4 @@
-export const createPostCard = posts => {
+export const createPostCards = posts => {
   return posts
     .map(
       postInfo => `
