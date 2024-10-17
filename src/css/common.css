@@ -38,3 +38,7 @@ a {
 button {
   cursor: pointer;
 }
+
+.container {
+  padding: 10px;
+}

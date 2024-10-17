@@ -23,7 +23,8 @@
   border: 1px solid #303030;
 }
 
-.search-btn {
+.search-btn,
+.load-more {
   font-size: 14px;
   padding: 10px 20px;
   background-color: #2ecc71;
@@ -32,6 +33,21 @@
   text-transform: uppercase;
   cursor: pointer;
   margin-left: 10px;
+}
+
+.load-more {
+  display: block;
+  margin: 20px auto 0px auto;
+  transition: opacity 250ms linear;
+}
+
+.load-more:hover,
+.load-more:focus {
+  opacity: 0.8;
+}
+
+.load-more.is-hidden {
+  display: none;
 }
 
 .gallery {
