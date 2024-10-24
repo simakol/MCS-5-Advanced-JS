@@ -44,7 +44,8 @@
 //   },
 // ];
 
-// function getBooksTitles() {
+// function getBooksTitles(books: Book[]): string[] {
+//   return books.map(({ title }) => title);
 // }
 
 // console.log(getBooksTitles(books));

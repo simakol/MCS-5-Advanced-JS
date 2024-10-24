@@ -25,7 +25,9 @@
 // foo('Garrett', 'Walton', 30);
 
 //* Складні типи:
+
 //* object
+
 // type Book = { title: string; description: string; rating: number };
 
 // let bookJS: Book = {
@@ -43,7 +45,7 @@
 //* array
 // const temperature: number[] = [10, 15, 12.5, 13];
 
-// const property: (string | number)[] = ['rating', 10];
+// const property: (string | number)[] = ['rating', 10, "a", 111];
 
 // type Book = { title: string; description: string; rating: number };
 

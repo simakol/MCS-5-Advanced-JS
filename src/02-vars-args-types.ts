@@ -16,6 +16,7 @@
 // console.log(someValue.trim());
 
 //* Unknown - більш безпечна альтернатива any з перевіркою типу перед використанням
+
 // let someValue: unknown = ' Hello World! ';
 
 // if (typeof someValue === 'string') {
@@ -26,10 +27,11 @@
 ? Реалізуйте функцію isPlainObject(value), яка перевіряє, чи є передане значення об'єктом.
 */
 
-// function isPlainObject(value) {
+// function isPlainObject(value: unknown) {
+//   return value instanceof Object;
 // }
 
-// console.log(isPlainObject(null));
+// console.log(isPlainObject(null)); // false
 // console.log(isPlainObject(1)); // false
 // console.log(isPlainObject('hello')); // false
 // console.log(isPlainObject({})); // true
@@ -41,6 +43,8 @@
 
 // const coordinates: [number, number] = [10, 20];
 
+// const userData: [string, number] = ['Tima', 28];
+
 /*
 ? Створіть тип Point, який описує кортеж, що складається з трьох координат: x, y, z.
 ?
@@ -48,14 +52,14 @@
 ? Дві точки збігаються, якщо збігаються всі їхні координати:
 */
 
-// type Point =
+// type Point = [number, number, number]
 
 // const p1: Point = [1, 3, 4];
 // const p2: Point = [1, 3, 4];
 // const p3: Point = [0, 8, 4];
 
-// function isTheSamePoint() {
-
+// function isTheSamePoint(p1: Point, p2: Point) {
+//     return p1.every((c1, i) => c1 === p2[i])
 // }
 
 // console.log(isTheSamePoint(p1, p2)); // true
@@ -72,6 +76,21 @@
 // }
 
 // console.log(CardinalDirection);
+
+// TRANSACTIONS - це фактично перелік доступних операцій на акаунті, тобто, це enum
+// const TRANSACTIONS = {
+//   deposit: 'deposit',
+//   withdraw: 'withdraw',
+// };
+
+// const bank = {
+//   balance: 0,
+//   makeTransaction(type, amount) {
+//     if(type === TRANSACTIONS.deposit) {...}
+//   },
+// };
+
+// bank.makeTransaction(TRANSACTIONS.deposit, 100)
 
 // {
 //   North: 0,
@@ -95,29 +114,44 @@
 ? Функція повертає об'єкт із двома полями: text (тут зберігається переданий текст) та status (тут зберігається переданий статус)
 */
 
-// function buildModal() {
+// enum ModalStatus {
+//   Opened, // 0
+//   Closed, // 1
+// }
 
+// function buildModal(text: string, status: ModalStatus) {
+//   return { text, status };
 // }
 
 // console.log(buildModal('Some text for modal', ModalStatus.Closed));
+// console.log(buildModal('Some text for modal 2', ModalStatus.Opened));
 
 //* Union Type - Тип об'єднання дозволяє змінній приймати значення більше ніж одного типу. Це означає, що змінна може мати значення кількох різних типів.
 
-// let numOrStr: number | string;
+// let numOrStr: number | string | boolean;
 
 // numOrStr = 10;
 // numOrStr = 'Hello';
+// numOrStr = true;
+// numOrStr = null;
 
 /*
-? Реалізуйте функцію lastIndex(str, char), яка повертає індекс останнього входження символу в рядок або null,
-? якщо такого символу немає. Метод lastIndexOf();
+? Реалізуйте функцію lastIndex(str, char), яка повертає індекс останнього входження символу в рядок або null, якщо такого символу немає. Метод lastIndexOf();
 */
+
+// function lastIndex(str: string, char: string): number | null {
+//   const index = str.lastIndexOf(char);
+
+//   return index === -1 ? null : index;
+// }
 
 // const result1 = lastIndex('test', 't');
 // const result2 = lastIndex('test', 'p');
 
 // console.log(result1); // 3
 // console.log(result2); // null
+
+// console.log([1,2,3].indexOf(result1));
 
 //* Intersection Type - Тип перетворення дозволяє комбінувати кілька типів в один. Це означає, що змінна повинна задовольняти всім зазначеним типам.
 
@@ -141,12 +175,20 @@
 //   permission: Permission;
 // };
 
-// type Admin =
+// type Admin = {
+//   login: string;
+//   permission: Permission;
+// };
+
+// type Admin = User & AdminPermission;
 
 // const user: User = { login: 'login1' };
 
-// function addAdmin(user: User) {
-
+// function addAdmin(user: User): Admin {
+//   return {
+//     ...user,
+//     permission: Permission.READ,
+//   };
 // }
 
 // const admin: Admin = addAdmin(user);
