@@ -1,0 +1,18 @@
+{
+  "name": "mcs-5-advanced-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "start": "web-dev-server --node-resolve --watch --open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@web/dev-server": "^0.4.6"
+  }
+}
